@@ -1,0 +1,96 @@
+   <header  class="head1">
+            <div>
+                <img src="pic 3.jpg" alt="Profile Picture" class="profile-picture">
+            </div>
+            <div>
+                <h1>Noman Akhtar</h1>
+                <p class="job-title">Medical Sales Officer & Frontend Developer</p>
+                <p class="contact-info">Email: <a href="mailto:nomanakhtar222@gmail.com" class="email">nomanakhtar222@gmail.com</a> | Phone: +923102833835 | LinkedIn: <a href="https://www.linkedin.com/in/noman-akhtar-826840166" target="_blank" class="linkedin">Noman Akhtar</a></p>
+            </div>
+          
+        </header>
+
+
+---------------------------------------------------------
+HTML
+<section id="section skills">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+        <li class="skill-item" data-skill="html">HTML</li>
+        <li class="skill-item" data-skill="css">CSS</li>
+        <li class="skill-item" data-skill="typescript">TypeScript</li>
+        <li class="skill-item" data-skill="msword">MS Word</li>
+    </ul>
+
+    <div class="skill-details" id="html-details">
+        <h3>HTML</h3>
+        <p>HTML (HyperText Markup Language) is the standard language for creating web pages. It structures the content and layout of a webpage using elements like headings, paragraphs, lists, etc.</p>
+    </div>
+
+    <div class="skill-details" id="css-details">
+        <h3>CSS</h3>
+        <p>CSS (Cascading Style Sheets) is used to style and layout web pages. It controls the look and feel of the HTML structure, including colors, fonts, spacing, and positioning.</p>
+    </div>
+
+    <div class="skill-details" id="typescript-details">
+        <h3>TypeScript</h3>
+        <p>TypeScript is a superset of JavaScript that adds static types. It helps improve code quality and maintainability by offering early error detection during development.</p>
+    </div>
+
+    <div class="skill-details" id="msword-details">
+        <h3>MS Word</h3>
+        <p>Microsoft Word is a word processing software used for creating, editing, formatting, and printing documents. It's widely used for professional and personal document creation.</p>
+    </div>
+</section>
+------------------------------------------------------------------
+
+CSS
+/* Default styles for the skill details */
+.skill-details {
+    display: none; /* Hide details by default */
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Styling the skill list items */
+.skills-list {
+    list-style: none;
+    padding: 0;
+}
+
+.skill-item {
+    cursor: pointer;
+    padding: 5px;
+    margin: 5px 0;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.skill-item:hover {
+    background-color: #e0e0e0;
+}
+------------------------------------------------------------------------
+
+typescript
+
+// Select all skill items
+const skillItems = document.querySelectorAll('.skill-item');
+
+// Add click event listeners to each skill item
+skillItems.forEach(item => {
+    item.addEventListener('click', function() {
+        const skillId = this.getAttribute('data-skill'); // Get the data-skill attribute
+        
+        // Hide all skill details
+        const allDetails = document.querySelectorAll('.skill-details');
+        allDetails.forEach(detail => detail.style.display = 'none');
+        
+        // Show the clicked skill's details
+        const skillDetail = document.getElementById(`${skillId}-details`);
+        skillDetail.style.display = 'block';
+    });
+});
